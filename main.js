@@ -9,12 +9,19 @@ class Book {
     }
 }
 
+let jsonData;
+let books;
+
 fetch('./data/db.json')
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+        jsonData = data;
+        books = jsonData.books
+        console.log(books)
+    })
     .catch(error => console.error('Error fetching data: ', error))
 
-const books = jsonData.books;
+/**/
 
 
 
