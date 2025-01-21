@@ -67,15 +67,11 @@ section {
 }
 
 .border-section {
-    border-radius: 5px;
+    border-radius: 10px;
     border-style: solid;
     border-width: 0.5px;
+    border-color: var(--proj-light-grey);
     margin: 10px;
-}
-
-.large-text {
-    font-family: 'League Spartan';
-    color: var(--proj-brown);
 }
 
 #welcome {
@@ -123,15 +119,25 @@ section {
     max-width: 100%;
 }
 
+#options h1 {
+    font-size: 3rem;
+    color: var(--proj-brown);
+}
+
 #options-grid {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .option-img-container {
-    width: 200px;
-    height: 300px;
+    width: 300px;
+    height: 500px;
+}
+
+.option-img-container:hover {
+    opacity: 0.7;
 }
 
 .option-img-container img {

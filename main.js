@@ -7,6 +7,8 @@ class Book {
         this.dateAdded = dateAdded,
         this.datePublish = datePublish
     }
+
+        
 }
 
 let jsonData;
