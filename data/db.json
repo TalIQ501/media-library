@@ -1,0 +1,76 @@
+{
+    "books": {
+        "All the Way From Sydney": {
+            "author": "Robert Samsmith",
+            "language": "English",
+            "image": "img/Book Covers/All the Way from Sydney Cover.jpg",
+            "genre": "Drama",
+            "date-added": "",
+            "date-published": ""
+        },
+        "Freezing Breeze": {
+            "author": "Robert Samsmith",
+            "language": "English",
+            "image": "img/Book Covers/Freezing Breeze Cover.jpg",
+            "genre": "",
+            "date-added": "",
+            "date-published": ""
+        },
+        "Inhabitants": {
+            "author": "Alisia Cara",
+            "language": "English",
+            "image": "img/Book Covers/Inhabitants Cover.jpg",
+            "genre": "",
+            "date-added": "",
+            "date-published": ""
+        },
+        "Peace is the Next Step": {
+            "author": "Samuel Jackson",
+            "language": "",
+            "image": "img/Book Covers/Peace is the Next Step Cover.jpg",
+            "genre": "",
+            "date-added": "",
+            "date-published": ""
+        },
+        "Report": {
+            "author": "Henry Richard",
+            "language": "English",
+            "image": "img/Book Covers/Report Cover.jpg",
+            "genre": "",
+            "date-added": "",
+            "date-published": ""
+        },
+        "The Foolies": {
+            "author": "Ana Williams",
+            "language": "English",
+            "image": "img/Book Covers/The Foolies Cover.jpg",
+            "genre": "",
+            "date-added": "",
+            "date-published": ""
+        },
+        "The Meadows": {
+            "author": "",
+            "language": "English",
+            "image": "img/Book Covers/The Meadows Cover.jpg",
+            "genre": "",
+            "date-added": "",
+            "date-published": ""
+        },
+        "The Untold Mystery": {
+            "author": "James Philips",
+            "language": "English",
+            "image": "img/Book Covers/The Untold Mystery Cover.jpg",
+            "genre": "",
+            "date-added": "",
+            "date-published": ""
+        },
+        "Under the Sea": {
+            "author": "",
+            "language": "English",
+            "image": "img/Book Covers/Under the Sea Cover.jpg",
+            "genre": "",
+            "date-added": "",
+            "date-published": ""
+        }
+    }
+}
