@@ -5,23 +5,23 @@ class Book {
         this.image = image,
         this.genre = genre,
         this.dateAdded = dateAdded,
-        this.datePublish = datePublish
+        this.yearPublish = yearPublish
     }
-
-        
 }
 
 let jsonData;
 let books;
 
-fetch('./data/db.json')
-    .then(response => response.json())
-    .then(data => {
-        jsonData = data;
-        books = jsonData.books
-        console.log(books)
-    })
-    .catch(error => console.error('Error fetching data: ', error))
+const fetchData = () => {
+    fetch('./data/db.json')
+        .then(response => response.json())
+        .then(data => {
+            jsonData = data;
+            books = jsonData.books
+            console.log(books)
+        })
+        .catch(error => console.error('Error fetching data: ', error))
+}
 
 /**/
 

@@ -12,7 +12,7 @@
             "author": "Robert Samsmith",
             "language": "English",
             "image": "img/Book Covers/Freezing Breeze Cover.jpg",
-            "genre": "",
+            "genre": "Adventure",
             "date-added": "",
             "date-published": ""
         },
@@ -20,7 +20,7 @@
             "author": "Alisia Cara",
             "language": "English",
             "image": "img/Book Covers/Inhabitants Cover.jpg",
-            "genre": "",
+            "genre": "Adventure",
             "date-added": "",
             "date-published": ""
         },
@@ -28,7 +28,7 @@
             "author": "Samuel Jackson",
             "language": "",
             "image": "img/Book Covers/Peace is the Next Step Cover.jpg",
-            "genre": "",
+            "genre": "Political",
             "date-added": "",
             "date-published": ""
         },
@@ -36,7 +36,7 @@
             "author": "Henry Richard",
             "language": "English",
             "image": "img/Book Covers/Report Cover.jpg",
-            "genre": "",
+            "genre": "Mystery",
             "date-added": "",
             "date-published": ""
         },
