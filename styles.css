@@ -41,7 +41,7 @@ header nav {
 }
 
 .nav-item:hover {
-    background-color: gold;
+    background-color: var(--proj-magenta);
     color: ivory;
 }
 
