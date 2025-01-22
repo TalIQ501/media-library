@@ -3,7 +3,7 @@
         "All the Way From Sydney": {
             "author": "Robert Samsmith",
             "language": "English",
-            "image": "./img/Book Covers/All the Way from Sydney Cover.jpg",
+            "image": "/img/Book Covers/All the Way from Sydney Cover.jpg",
             "genre": "Drama",
             "date_added": "",
             "date_published": ""
@@ -11,7 +11,7 @@
         "Freezing Breeze": {
             "author": "Robert Samsmith",
             "language": "English",
-            "image": "./img/Book Covers/Freezing Breeze Cover.jpg",
+            "image": "/img/Book Covers/Freezing Breeze Cover.jpg",
             "genre": "Adventure",
             "date_added": "",
             "date_published": ""
@@ -19,7 +19,7 @@
         "Inhabitants": {
             "author": "Alisia Cara",
             "language": "English",
-            "image": "./img/Book Covers/Inhabitants Cover.jpg",
+            "image": "/img/Book Covers/Inhabitants Cover.jpg",
             "genre": "Adventure",
             "date_added": "",
             "date_published": ""
@@ -27,7 +27,7 @@
         "Peace is the Next Step": {
             "author": "Samuel Jackson",
             "language": "",
-            "image": "./img/Book Covers/Peace is the Next Step Cover.jpg",
+            "image": "/img/Book Covers/Peace is the Next Step Cover.jpg",
             "genre": "Political",
             "date_added": "",
             "date_published": ""
@@ -35,7 +35,7 @@
         "Report": {
             "author": "Henry Richard",
             "language": "English",
-            "image": "./img/Book Covers/Report Cover.jpg",
+            "image": "/img/Book Covers/Report Cover.jpg",
             "genre": "Mystery",
             "date_added": "",
             "date_published": ""
@@ -43,7 +43,7 @@
         "The Foolies": {
             "author": "Ana Williams",
             "language": "English",
-            "image": "./img/Book Covers/The Foolies Cover.jpg",
+            "image": "/img/Book Covers/The Foolies Cover.jpg",
             "genre": "",
             "date_added": "",
             "date_published": ""
@@ -51,7 +51,7 @@
         "The Meadows": {
             "author": "",
             "language": "English",
-            "image": "./img/Book Covers/The Meadows Cover.jpg",
+            "image": "/img/Book Covers/The Meadows Cover.jpg",
             "genre": "",
             "date_added": "",
             "date_published": ""
@@ -59,7 +59,7 @@
         "The Untold Mystery": {
             "author": "James Philips",
             "language": "English",
-            "image": "./img/Book Covers/The Untold Mystery Cover.jpg",
+            "image": "/img/Book Covers/The Untold Mystery Cover.jpg",
             "genre": "",
             "date_added": "",
             "date_published": ""
@@ -67,7 +67,7 @@
         "Under the Sea": {
             "author": "",
             "language": "English",
-            "image": "./img/Book Covers/Under the Sea Cover.jpg",
+            "image": "/img/Book Covers/Under the Sea Cover.jpg",
             "genre": "",
             "date_added": "",
             "date_published": ""

@@ -41,6 +41,11 @@ header nav {
     gap: 5px;
 }
 
+header a, header a:hover, header a:focus, header a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
 .nav-item {
     padding: 10px;
     height: 100px;

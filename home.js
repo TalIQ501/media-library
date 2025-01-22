@@ -10,11 +10,11 @@ class Book {
     }
 }
 
-const recsBooks = document.getElementById('recs-grid-books')
+const booksDiv = document.getElementById('recs-grid-books')
 
 async function fetchData() {
     try {
-        const res = await fetch('./data/db.json');
+        const res = await fetch('/data/db.json');
         const data = await res.json();
         return data;
     } catch (err) {
