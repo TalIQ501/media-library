@@ -192,6 +192,13 @@ section {
     font-style: italic;
 }
 
+.page-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+
 footer {
     object-fit: cover;
     background-color: var(--proj-dark-green);
