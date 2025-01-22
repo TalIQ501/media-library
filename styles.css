@@ -146,7 +146,49 @@ section {
     height: 100%;
 }
 
+.recs {
+    display: flex;
+    flex-direction: column;
+}
+
+.recs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.grid-object .img-container {
+    height: 400px;
+    width: 100%;
+}
+
+.grid-object .img-container img {
+    width: 100%;
+}
+
+.grid-object .img-container:hover {
+    opacity: 0.7;
+}
+
+.grid-object .bottom-bar {
+    border-style: solid;
+    border-width: 0.25px;
+    border-color: var(--proj-light-grey);
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px;
+}
+
+.grid-object .bottom-bar .book-name-display {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.grid-object .bottom-bar .book-author-display {
+    font-style: italic;
+}
+
 footer {
+    object-fit: cover;
     background-color: var(--proj-dark-green);
     height: 75px;
 }
