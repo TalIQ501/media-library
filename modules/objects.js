@@ -9,7 +9,7 @@ export class Book {
         this.yearPublish = yearPublish;
     }
 
-    createBookElem = (obj) => {
+    createBookElem = (targetDiv) => {
         const bookElem = document.createElement('div');
         bookElem.setAttribute('id', this.name);
         bookElem.classList.add('grid-object');
@@ -41,7 +41,7 @@ export class Book {
         dataBar.appendChild(bookNameDisp);
         dataBar.appendChild(bookAuthorDisp);
     
-        obj.appendChild(bookElem);
+        targetDiv.appendChild(bookElem);
     };
 }
 

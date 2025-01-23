@@ -1,5 +1,5 @@
 import { Book } from "../../modules/objects.js";
-import { sortFunc } from "../../modules/utils.js";
+import { createGrid } from "../../modules/utils.js";
 
 const booksDiv = document.getElementById('grid-books')
 
@@ -12,14 +12,6 @@ async function fetchData() {
         console.error('Error fetching data: ', err);
     }
 }
-
-const createBookDisplay = (books, param="date_added", desc=false) => {
-    sortFunc(books, param, desc);
-
-    books.forEach(book => {
-        book.createBookElem(booksDiv)
-    })
-};
 
 (async () => {
     const data = await fetchData();
@@ -40,7 +32,7 @@ const createBookDisplay = (books, param="date_added", desc=false) => {
     });
 
     if (books) {
-        createBookDisplay(books, "name", true);
+        createGrid(books, 'createBookElem', booksDiv);
     } else {
         console.log('Data is incorrect');
         console.log(typeof data);
