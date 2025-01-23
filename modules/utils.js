@@ -1,22 +1,13 @@
-export const bubbleSort = (arr, length, param) => {
-    for (let i = 0; i < length - 1; i++) {
-        for (let j = 0; j < length - i - 1; j++) {
-            if (param) {
-                if (arr[j][param] > arr[j + 1][param]) {
-                    let temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-            } else {
-                if (arr[j] > arr[j + 1]) {
-                    let temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-            }
-        }
+export const sortFunc = (obj, param, desc) => {
+    const stringBased = new Set(["name", "author", "genre"])
+    const numBased = new Set(["rating"])
+    const dateBased = new Set(["date_added", "date_published"])
+
+    if (stringBased.has(param)) {
+        desc ? 
+        obj = obj.sort((a, b) => b[param].localeCompare(a[param])) :
+        obj = obj.sort((a, b) => a[param].localeCompare(b[param]))
     }
 
-    return arr
+    return obj;
 }
-

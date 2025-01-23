@@ -1,4 +1,5 @@
-import { Book } from "../../modules/objects";
+import { Book } from "../../modules/objects.js";
+import { sortFunc } from "../../modules/utils.js";
 
 const booksDiv = document.getElementById('grid-books')
 
@@ -12,7 +13,9 @@ async function fetchData() {
     }
 }
 
-const createBookDisplay = (books) => {
+const createBookDisplay = (books, param="date_added", desc=false) => {
+    sortFunc(books, param, desc);
+
     books.forEach(book => {
         book.createBookElem(booksDiv)
     })
@@ -37,7 +40,7 @@ const createBookDisplay = (books) => {
     });
 
     if (books) {
-        createBookDisplay(books);
+        createBookDisplay(books, "name", true);
     } else {
         console.log('Data is incorrect');
         console.log(typeof data);
