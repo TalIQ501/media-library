@@ -36,8 +36,39 @@
 
         </nav>
     </header>
-    <section id="recommended-section" class="border-section">
-        <div id="recs-books" class="recs">
+    
+    <form action="" id="books-form" class="filter-form">
+        <select name="language" id="language-filter">
+            <option value="" selected>Select a language</option>
+            <option value="english">English</option>
+            <option value="urdu">Urdu</option>
+        </select>
+        <select name="genre" id="genre-filter">
+            <option value="" selected>Select a genre</option>
+            <option value="action">Action</option>
+            <option value="adventure">Adventure</option>
+            <option value="autobiography">Autobiograohy</option>
+            <option value="biography">Biography</option>
+            <option value="drama">Drama</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="history">History</option>
+            <option value="humour">Humour</option>
+            <option value="mystery">Mystery</option>
+            <option value="sports">Sports</option>
+            <option value="thriller">Thriller</option>
+        </select>
+        <select name="sort" id="sort-by">
+            <option value="date-added" selected>Date Added</option>
+            <option value="date-published">Date Published</option>
+            <option value="name">Book Name</option>
+            <option value="author">Author Name</option>
+            <option value="" disabled></option>
+        </select>
+        <input name="search" id="search-bar" class="search-bar">
+        <button class="filter-button" type="submit">Go</button>
+    </form>
+    <section id="content-section" class="border-section">
+        <div id="books-list" class="recs">
             <h3>Books</h3>
             <div id="grid-books" class="page-grid"></div>
         </div>

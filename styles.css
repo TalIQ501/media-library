@@ -66,6 +66,16 @@ header a, header a:hover, header a:focus, header a:active {
     font-weight: 500;
 }
 
+select{
+    border:none;
+    padding: 10px 20px;
+    border-radius:5px;
+  }
+  
+  select:focus{
+    outline:none;
+  }  
+
 section {
     max-width: 100%;
     padding: 20px;
@@ -196,6 +206,31 @@ section {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
+}
+
+.filter-form {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    max-width: 100%;
+    padding: 5px;
+    margin: 10px;
+    background-color: var(--proj-light-grey);
+}
+
+.search-bar {
+    min-height: 2rem;
+    max-height: 100%;
+    width: 100%;
+    background-color: whitesmoke;
+}
+
+.filter-button {
+    padding: 10px;
+    background-color: var(--proj-magenta);
+    color: whitesmoke;
+    border-style: none;
+    border-radius: 5px;
 }
 
 

@@ -1,41 +1,58 @@
 import { Book } from "../../modules/objects.js";
-import { createGrid } from "../../modules/utils.js";
+import { createGrid, filterSearchSort, processFormData } from "../../modules/utils.js";
+import { fetchData } from "../../backend/fetch.js";
 
-const booksDiv = document.getElementById('grid-books')
+const booksDiv = document.getElementById('grid-books');
 
-async function fetchData() {
-    try {
-        const res = await fetch('/data/db.json');
-        const data = await res.json();
-        return data;
-    } catch (err) {
-        console.error('Error fetching data: ', err);
-    }
-}
-
-(async () => {
-    const data = await fetchData();
+const getBooks = async () => {
+    const data = await fetchData("books");
     const books = [];
-    
-    Object.entries(data["books"]).forEach(([key, book]) => {
+
+    Object.entries(data).forEach(([bookName, bookDetail]) => {
         const newBook = new Book(
-            key,
-            book["author"],
-            book["language"],
-            book["image"],
-            book["genre"],
-            book["date_added"],
-            book["date_published"]
+            bookName,
+            bookDetail["author"],
+            bookDetail["language"],
+            bookDetail["image"],
+            bookDetail["genre"],
+            bookDetail["date_added"],
+            bookDetail["date_published"]
         );
-        
+        console.log(newBook)
         books.push(newBook);
     });
 
-    if (books) {
-        createGrid(books, 'createBookElem', booksDiv);
-    } else {
-        console.log('Data is incorrect');
-        console.log(typeof data);
-        console.log(data);
+    return books;
+}
+
+const filterBooks = (formData, lst) => {
+    const bookFilters = new Set(["language", "genre"])
+
+    const processedData = processFormData(formData, bookFilters)
+
+    const filteredBooks = filterSearchSort(lst, processedData);
+
+    console.log(filteredBooks)
+
+    while (booksDiv.firstChild) {
+        booksDiv.removeChild(booksDiv.firstChild)
     }
+
+    createGrid(filteredBooks, 'createBookElem', booksDiv, {});
+}
+
+(async () => {
+    const books = await getBooks(); // Deep copy;
+
+    createGrid(books, 'createBookElem', booksDiv, {});
+
+    const booksForm = document.getElementById('books-form');
+
+    booksForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+
+        filterBooks(formData, books);
+    })
 })();

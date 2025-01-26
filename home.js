@@ -1,24 +1,8 @@
 import { Book } from './modules/objects.js';
+import { createGrid, convertDDMMYY } from './modules/utils.js';
+import { fetchData } from './backend/fetch.js';
 
-const booksDiv = document.getElementById('recs-grid-books')
-
-async function fetchData() {
-    try {
-        const res = await fetch('/data/db.json');
-        const data = await res.json();
-        return data;
-    } catch (err) {
-        console.error('Error fetching data: ', err);
-    }
-}
-
-const createBookDisplay = (n, books) => {
-    const bookDisplayList = books.slice(0, n)
-
-    bookDisplayList.forEach(book => {
-        book.createBookElem(booksDiv)
-    })
-};
+const booksDiv = document.getElementById('recs-grid-books');
 
 (async () => {
     const data = await fetchData();
@@ -31,15 +15,17 @@ const createBookDisplay = (n, books) => {
             book["language"],
             book["image"],
             book["genre"],
-            book["date_added"],
-            book["date_published"]
+            convertDDMMYY(book["date_added"]),
+            convertDDMMYY(book["date_published"])
         );
     
         books.push(newBook);
     });
 
-    if (books) {
-        createBookDisplay(4, books);
+    let recBooks = books;
+
+    if (recBooks) {
+        createGrid(recBooks, "createBookElem", booksDiv, {cutOff : 4, sort : 'name'});
     } else {
         console.log('Data is incorrect');
         console.log(typeof data);
