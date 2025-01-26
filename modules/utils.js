@@ -41,11 +41,13 @@ const sortFunc = (lst, sort, desc) => {
 }
 
 const searchFunc = (lst, search) => {
-    lst = lst.filter(item => {
-        return Object.values(item).some(val =>
-            String(val).toLowerCase().includes(search.toLowerCase())
-        );
+    const searchedList = lst.filter(item => {
+        if (item["name"].toLowerCase().includes(search.toLowerCase())) {
+            return item
+        }
     });
+
+    return searchedList
 }
 
 export const createGrid = (objLst, methodName, targetDiv, { cutOff = 0, sort = "date_added", desc = false }) => {
@@ -65,28 +67,33 @@ export const createGrid = (objLst, methodName, targetDiv, { cutOff = 0, sort = "
 };
 
 export const convertDDMMYY = (date) => {
+    console.log(date)
     if (date !== "") {
-        const [day, month, year] = date.split(',/\\');
+        console.log('Processing date')
+        const [day, month, year] = date.split('/');
+        console.log(`${day} / ${month} / ${year}`)
         return new Date(year, month - 1, day);
     }
 }
 
 export const filterSearchSort = (lst, { sort = 'date_added', search = null, filters = {} }) => {
-    const filteredList = []
-    for (const item of lst) {
-        let removed = false;
-        for (const [filter, filterValue] of Object.entries(filters)) {
-            if (filterValue !== '') {
-                console.log(`${filter} is ${filterValue}, ${item["name"]} has ${filter} of ${item[filter]}`)
-                if (item[filter].toLowerCase() !== filterValue.toLowerCase() || item[filter] === '') {
-                    removed = true;
-                }
+    let filteredList = lst.filter(item => {
+        return Object.entries(filters).every(([filter, filterValue]) => {
+            if (filterValue === '') return true;
+            if (filter === 'genre') {
+                return (
+                    item[filter].has(filterValue.toLowerCase()) && 
+                    item[filter] !== ''
+                )
+            } else {
+                return (
+                    item[filter].toLowerCase() === filterValue.toLowerCase() &&
+                    item[filter] !== ''
+                );
+
             }
-        }
-        if (!removed) {
-            filteredList.push(item);
-        }
-    }
+        });
+    });
 
     console.log(filteredList)
 
@@ -94,10 +101,11 @@ export const filterSearchSort = (lst, { sort = 'date_added', search = null, filt
         filteredList = searchFunc(filteredList, search);
     }
 
-    sortFunc(filteredList, "name");
-
-    if (sort !== "name") {
-        sortFunc(filteredList, sort);
+    if (filteredList) {
+        filteredList = sortFunc(filteredList, sort);
+        if (sort !== "name" && filteredList) {
+            filteredList = sortFunc(filteredList, sort);
+        }
     }
 
     return filteredList

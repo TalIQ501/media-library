@@ -37,8 +37,6 @@ const filterBooks = (formData, lst) => {
 
     const filteredBooks = filterSearchSort(lst, processedData);
 
-    console.log(filteredBooks)
-
     createGrid(filteredBooks, 'createBookElem', booksDiv, {});
 }
 
@@ -55,8 +53,6 @@ const filterBooks = (formData, lst) => {
         const formData = new FormData(e.target);
 
         const newBooks = await getBooks();
-
-        console.log(newBooks)
 
         filterBooks(formData, newBooks);
     })

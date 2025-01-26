@@ -4,73 +4,73 @@
             "author": "Robert Samsmith",
             "language": "English",
             "image": "/img/Book Covers/All the Way from Sydney Cover.jpg",
-            "genre": "Drama",
-            "date_added": "",
-            "date_published": ""
+            "genre": ["Travel", "Humour"],
+            "date_added": "5/1/2025",
+            "date_published": "5/1/2025"
         },
         "Freezing Breeze": {
             "author": "Robert Samsmith",
             "language": "English",
             "image": "/img/Book Covers/Freezing Breeze Cover.jpg",
-            "genre": "Adventure",
-            "date_added": "",
-            "date_published": ""
+            "genre": ["Drama"],
+            "date_added": "1/9/2018",
+            "date_published": "7/3/2015"
         },
         "Inhabitants": {
             "author": "Alisia Cara",
             "language": "English",
             "image": "/img/Book Covers/Inhabitants Cover.jpg",
-            "genre": "Adventure",
-            "date_added": "",
-            "date_published": ""
+            "genre": ["Adventure, Mystery"],
+            "date_added": "3/4/2009",
+            "date_published": "3/9/2002"
         },
         "Peace is the Next Step": {
             "author": "Samuel Jackson",
-            "language": "",
+            "language": "English",
             "image": "/img/Book Covers/Peace is the Next Step Cover.jpg",
-            "genre": "Political",
-            "date_added": "",
-            "date_published": ""
+            "genre": ["Philosophy"],
+            "date_added": "2/4/2020",
+            "date_published": "9/4/2016"
         },
         "Report": {
             "author": "Henry Richard",
             "language": "English",
             "image": "/img/Book Covers/Report Cover.jpg",
-            "genre": "Mystery",
+            "genre": ["Mystery", "Crime", "Thriller"],
             "date_added": "",
-            "date_published": ""
+            "date_published": "5/12/2012"
         },
         "The Foolies": {
             "author": "Ana Williams",
             "language": "English",
             "image": "/img/Book Covers/The Foolies Cover.jpg",
-            "genre": "",
+            "genre": ["Humour"],
             "date_added": "",
-            "date_published": ""
+            "date_published": "18/7/2007"
         },
         "The Meadows": {
             "author": "",
             "language": "English",
             "image": "/img/Book Covers/The Meadows Cover.jpg",
-            "genre": "",
+            "genre": ["History"],
             "date_added": "",
-            "date_published": ""
+            "date_published": "5/1/2014"
         },
         "The Untold Mystery": {
             "author": "James Philips",
             "language": "English",
             "image": "/img/Book Covers/The Untold Mystery Cover.jpg",
-            "genre": "",
+            "genre": ["Sci-Fi"],
             "date_added": "",
-            "date_published": ""
+            "date_published": "21/5/2008"
         },
         "Under the Sea": {
             "author": "",
             "language": "English",
             "image": "/img/Book Covers/Under the Sea Cover.jpg",
-            "genre": "",
+            "genre": ["Adventure"],
             "date_added": "",
-            "date_published": ""
+            "date_published": "30/6/1998"
         }
     }
 }

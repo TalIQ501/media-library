@@ -15,6 +15,14 @@
     box-sizing: border-box;
 }
 
+.href-styles a,
+.href-styles a:hover,
+.href-styles a:focus,
+.href-styles a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
 img {
     max-width: 100%;
     max-height: 100%;
@@ -41,11 +49,6 @@ header nav {
     gap: 5px;
 }
 
-header a, header a:hover, header a:focus, header a:active {
-    text-decoration: none;
-    color: inherit;
-}
-
 .nav-item {
     padding: 10px;
     height: 100px;
@@ -66,15 +69,15 @@ header a, header a:hover, header a:focus, header a:active {
     font-weight: 500;
 }
 
-select{
+select {
     border:none;
     padding: 10px 20px;
     border-radius:5px;
-  }
+}
   
-  select:focus{
+select:focus{
     outline:none;
-  }  
+}  
 
 section {
     max-width: 100%;
@@ -233,6 +236,49 @@ section {
     border-radius: 5px;
 }
 
+.book-details-container {
+    
+}
+
+.book-details-container .banner {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    height: 4rem;
+    background-color: var(--proj-light-grey);
+}
+
+.banner .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.book-details-container .lower-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.lower-container .img-container {
+    height: 100px;
+    width: 300px;
+}
+
+.lower-container .img-container img {
+    height: 100%;
+    width: 100%;
+}
+
+.details-container {
+    font-size: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 5px;
+}
+
+.details-container .detail-label {
+    font-weight: 600;
+}
 
 footer {
     object-fit: cover;
