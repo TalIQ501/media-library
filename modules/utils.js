@@ -73,24 +73,22 @@ export const convertDDMMYY = (date) => {
 
 export const filterSearchSort = (lst, { sort = 'date_added', search = null, filters = {} }) => {
     const filteredList = []
-    for (const item in lst) {
-        console.log(`Book is ${item["name"]}`)
+    for (const item of lst) {
         let removed = false;
         for (const [filter, filterValue] of Object.entries(filters)) {
-            if (filterValue) {
-                console.log(`Filter is ${filterValue}`);
-                if (item[filter] !== filterValue) {
-                    console.log(`${item[filter]} is the ${filter} of ${item["name"]} does not match ${filterValue}`)
+            if (filterValue !== '') {
+                console.log(`${filter} is ${filterValue}, ${item["name"]} has ${filter} of ${item[filter]}`)
+                if (item[filter].toLowerCase() !== filterValue.toLowerCase() || item[filter] === '') {
                     removed = true;
-                    break;
                 }
             }
         }
         if (!removed) {
-            console.log(`${item["name"]} added`)
             filteredList.push(item);
         }
     }
+
+    console.log(filteredList)
 
     if (search) {
         filteredList = searchFunc(filteredList, search);

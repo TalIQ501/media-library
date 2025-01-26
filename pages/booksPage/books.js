@@ -18,7 +18,6 @@ const getBooks = async () => {
             bookDetail["date_added"],
             bookDetail["date_published"]
         );
-        console.log(newBook)
         books.push(newBook);
     });
 
@@ -26,6 +25,12 @@ const getBooks = async () => {
 }
 
 const filterBooks = (formData, lst) => {
+    console.log(lst)
+
+    while (booksDiv.firstChild) {
+        booksDiv.removeChild(booksDiv.firstChild)
+    }
+
     const bookFilters = new Set(["language", "genre"])
 
     const processedData = processFormData(formData, bookFilters)
@@ -34,15 +39,11 @@ const filterBooks = (formData, lst) => {
 
     console.log(filteredBooks)
 
-    while (booksDiv.firstChild) {
-        booksDiv.removeChild(booksDiv.firstChild)
-    }
-
     createGrid(filteredBooks, 'createBookElem', booksDiv, {});
 }
 
 (async () => {
-    const books = await getBooks(); // Deep copy;
+    const books = await getBooks();
 
     createGrid(books, 'createBookElem', booksDiv, {});
 
@@ -53,6 +54,10 @@ const filterBooks = (formData, lst) => {
 
         const formData = new FormData(e.target);
 
-        filterBooks(formData, books);
+        const newBooks = await getBooks();
+
+        console.log(newBooks)
+
+        filterBooks(formData, newBooks);
     })
 })();
