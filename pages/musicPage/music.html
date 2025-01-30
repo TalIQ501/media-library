@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Library</title>
     <link rel="stylesheet" href="/styles.css">
-    <script type="module" src="books.js" defer></script>
+    <script type="module" src="music.js" defer></script>
 </head>
 
 <body>
@@ -45,7 +45,7 @@
             </a>
         </nav>
     </header>
-    <form action="" id="books-form" class="filter-form">
+    <form action="" id="music-form" class="filter-form">
         <select name="language" id="language-filter">
             <option value="" selected>Select a language</option>
             <option value="english">English</option>
@@ -53,33 +53,27 @@
         </select>
         <select name="genre" id="genre-filter">
             <option value="" selected>Select a genre</option>
-            <option value="action">Action</option>
-            <option value="adventure">Adventure</option>
-            <option value="autobiography">Autobiograohy</option>
-            <option value="biography">Biography</option>
-            <option value="drama">Drama</option>
-            <option value="fantasy">Fantasy</option>
-            <option value="history">History</option>
-            <option value="humour">Humour</option>
-            <option value="mystery">Mystery</option>
-            <option value="sports">Sports</option>
-            <option value="thriller">Thriller</option>
+            <option value="rock">Rock</option>
+            <option value="pop">Pop</option>
+            <option value="classical">Classical</option>
+            <option value="electronic">Electronic</option>
+            <option value="rap">Rap & Hip-Hop</option>
+
         </select>
         <select name="sort" id="sort-by">
             <option value="date_added" selected>Date Added</option>
-            <option value="date_published">Date Published</option>
-            <option value="name">Book Name</option>
-            <option value="author">Author Name</option>
-            <option value="" disabled></option>
+            <option value="date_released">Date Released</option>
+            <option value="name">Song Name</option>
+            <option value="artist">Artist</option>
         </select>
         <input name="search" id="search-bar" class="search-bar">
         <button class="filter-button" type="submit">Go</button>
     </form>
     <section id="content-section" class="border-section">
-        <div id="books-list" class="recs">
-            <h1>Books</h1>
-            <div id="empty-div-books" class="empty-div"></div>
-            <div id="grid-books" class="page-grid href-styles"></div>
+        <div id="music-list" class="recs">
+            <h1>Music</h1>
+            <div id="empty-div-music" class="empty-div"></div>
+            <div id="grid-music" class="page-grid href-styles"></div>
         </div>
     </section>
     <footer>

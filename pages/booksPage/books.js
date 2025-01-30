@@ -3,6 +3,7 @@ import { createGrid, processFormData, convertDDMMYY } from "../../modules/utils.
 import { fetchData } from "../../backend/fetch.js";
 
 const booksDiv = document.getElementById('grid-books');
+const emptyDiv = document.getElementById('empty-div-books');
 
 const getBooks = async () => {
     const data = await fetchData("books");
@@ -33,13 +34,20 @@ const filterBooks = (formData, lst) => {
 
     const processedData = processFormData(formData, bookFilters)
 
-    //const filteredBooks = filterSearchSort(lst, processedData);
-
     createGrid(lst, 'createBookElem', booksDiv, processedData);
+
+    if (!booksDiv.firstChild) {
+        emptyDiv.textContent = 'No item matches your description';
+    }
 }
 
 (async () => {
     const books = await getBooks();
+
+    if (books.length === 0) {
+        emptyDiv.textContent = 'Books unavailable';
+        return
+    }
 
     createGrid(books, 'createBookElem', booksDiv);
 
@@ -51,6 +59,13 @@ const filterBooks = (formData, lst) => {
         const formData = new FormData(e.target);
 
         const newBooks = await getBooks();
+
+        if (newBooks.length === 0) {
+            emptyDiv.textContent = 'Books unavailable';
+            return
+        }
+
+        emptyDiv.textContent = '';
 
         filterBooks(formData, newBooks);
     })

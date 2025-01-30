@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Library</title>
     <link rel="stylesheet" href="/styles.css">
-    <script type="module" src="books.js" defer></script>
+    <script type="module" src="movies.js" defer></script>
 </head>
 
 <body>
@@ -45,7 +45,8 @@
             </a>
         </nav>
     </header>
-    <form action="" id="books-form" class="filter-form">
+    
+    <form action="" id="movies-form" class="filter-form">
         <select name="language" id="language-filter">
             <option value="" selected>Select a language</option>
             <option value="english">English</option>
@@ -76,10 +77,10 @@
         <button class="filter-button" type="submit">Go</button>
     </form>
     <section id="content-section" class="border-section">
-        <div id="books-list" class="recs">
-            <h1>Books</h1>
-            <div id="empty-div-books" class="empty-div"></div>
-            <div id="grid-books" class="page-grid href-styles"></div>
+        <div id="movies-list" class="recs">
+            <h1>Movies</h1>
+            <div id="empty-div-movies" class="empty-div"></div>
+            <div id="grid-movies" class="page-grid href-styles"></div>
         </div>
     </section>
     <footer>

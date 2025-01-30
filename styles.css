@@ -7,6 +7,7 @@
     --proj-dark-grey: #535346;
     --proj-magenta: #5b093a;
     --proj-brown: #58463a;
+    --proj-whitesmoke: whitesmoke;
 }
 
 * {
@@ -40,7 +41,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: var(--proj-dark-green);
-    color: whitesmoke;
+    color: var(--proj-whitesmoke);
 }
 
 header nav {
@@ -69,6 +70,10 @@ header nav {
     font-weight: 500;
 }
 
+.nav-svg {
+    fill: var(--proj-whitesmoke);
+}
+
 select {
     border:none;
     padding: 10px 20px;
@@ -90,6 +95,13 @@ section {
     border-width: 0.5px;
     border-color: var(--proj-light-grey);
     margin: 10px;
+}
+
+.empty-div {
+    font-style: italic;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--proj-magenta);
 }
 
 #welcome {
@@ -211,6 +223,10 @@ section {
     gap: 30px;
 }
 
+#content-section h1 {
+    margin-bottom: 10px;
+}
+
 .filter-form {
     display: flex;
     flex-direction: row;
@@ -225,13 +241,13 @@ section {
     min-height: 2rem;
     max-height: 100%;
     width: 100%;
-    background-color: whitesmoke;
+    background-color: var(--proj-whitesmoke);
 }
 
 .filter-button {
     padding: 10px;
     background-color: var(--proj-magenta);
-    color: whitesmoke;
+    color: var(--proj-whitesmoke);
     border-style: none;
     border-radius: 5px;
 }
@@ -283,7 +299,8 @@ footer {
     height: 75px;
     object-fit: cover;
     background-color: var(--proj-dark-green);
-    color: whitesmoke;
+    color: var(--proj-whitesmoke);
+    font-weight: 500;
     text-align: center;
     align-content: center;
 }

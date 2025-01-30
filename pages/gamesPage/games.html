@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Library</title>
     <link rel="stylesheet" href="/styles.css">
-    <script type="module" src="books.js" defer></script>
+    <script type="module" src="games.js" defer></script>
 </head>
 
 <body>
@@ -46,30 +46,27 @@
         </nav>
     </header>
     <form action="" id="books-form" class="filter-form">
-        <select name="language" id="language-filter">
+        <select name="publisher" id="language-filter">
             <option value="" selected>Select a language</option>
-            <option value="english">English</option>
-            <option value="urdu">Urdu</option>
+            <option value="" disabled></option>
+            <option value="" disabled></option>
         </select>
         <select name="genre" id="genre-filter">
             <option value="" selected>Select a genre</option>
             <option value="action">Action</option>
             <option value="adventure">Adventure</option>
-            <option value="autobiography">Autobiograohy</option>
-            <option value="biography">Biography</option>
-            <option value="drama">Drama</option>
             <option value="fantasy">Fantasy</option>
             <option value="history">History</option>
             <option value="humour">Humour</option>
             <option value="mystery">Mystery</option>
             <option value="sports">Sports</option>
-            <option value="thriller">Thriller</option>
+            <option value="shooter">Thriller</option>
         </select>
         <select name="sort" id="sort-by">
             <option value="date_added" selected>Date Added</option>
-            <option value="date_published">Date Published</option>
-            <option value="name">Book Name</option>
-            <option value="author">Author Name</option>
+            <option value="date_published">Date Released</option>
+            <option value="name">Game</option>
+            <option value="author">Publisher</option>
             <option value="" disabled></option>
         </select>
         <input name="search" id="search-bar" class="search-bar">
@@ -77,8 +74,8 @@
     </form>
     <section id="content-section" class="border-section">
         <div id="books-list" class="recs">
-            <h1>Books</h1>
-            <div id="empty-div-books" class="empty-div"></div>
+            <h1>Games</h1>
+            <div id="empty-div-games" class="empty-div"></div>
             <div id="grid-books" class="page-grid href-styles"></div>
         </div>
     </section>
