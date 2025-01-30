@@ -237,7 +237,9 @@ section {
 }
 
 .book-details-container {
-    
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .book-details-container .banner {
@@ -254,26 +256,22 @@ section {
     vertical-align: middle;
 }
 
-.book-details-container .lower-container {
+.book-details-container .details-lower-container {
     display: flex;
     flex-direction: row;
+    gap: 10px;
 }
 
-.lower-container .img-container {
-    height: 100px;
-    width: 300px;
-}
-
-.lower-container .img-container img {
-    height: 100%;
-    width: 100%;
+.details-lower-container .img-container {
+    height: 600px;
+    width: 400px;
 }
 
 .details-container {
-    font-size: 1.25rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    row-gap: 5px;
+    font-size: 1.25rem;
+    gap: 5px;
 }
 
 .details-container .detail-label {
@@ -281,7 +279,11 @@ section {
 }
 
 footer {
+    width: 100%;
+    height: 75px;
     object-fit: cover;
     background-color: var(--proj-dark-green);
-    height: 75px;
+    color: whitesmoke;
+    text-align: center;
+    align-content: center;
 }

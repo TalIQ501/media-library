@@ -2,10 +2,17 @@ const processItem = (obj, methodName, ...args) => {
     obj[methodName](...args);
 }
 
+export const convertDDMMYY = (date) => {
+    if (date !== "") {
+        const [day, month, year] = date.split('/');
+        return new Date(year, month - 1, day);
+    }
+}
+
 export const processFormData = (formData, givenFilters) => {
     const processedData = {};
     const filters = {};
-    
+
     for (const [key, value] of formData.entries()) {
         if (givenFilters.has(key)) {
             filters[key] = value;
@@ -13,28 +20,28 @@ export const processFormData = (formData, givenFilters) => {
             processedData[key] = value;
         }
     }
+
     processedData["filters"] = filters;
-    console.log(processedData)
     return processedData;
 }
 
-const sortFunc = (lst, sort, desc) => {
+const sortFunc = (lst, sorter, desc) => {
     const stringBased = new Set(["name", "author", "genre"])
     const numBased = new Set(["rating"])
     const dateBased = new Set(["date_added", "date_published"])
 
-    if (stringBased.has(sort)) {
+    if (stringBased.has(sorter)) {
         desc ?
-            lst.sort((a, b) => b[sort].localeCompare(a[sort])) :
-            lst.sort((a, b) => a[sort].localeCompare(b[sort]))
-    } else if (numBased.has(sort)) {
+            lst.sort((a, b) => b[sorter].localeCompare(a[sorter])) :
+            lst.sort((a, b) => a[sorter].localeCompare(b[sorter]))
+    } else if (numBased.has(sorter)) {
         desc ?
-            lst.sort((a, b) => a.score - b.score) :
-            lst.sort((a, b) => b.score - a.score)
-    } else if (dateBased.has(sort)) {
+            lst.sort((a, b) => a[sorter] - b[sorter]) :
+            lst.sort((a, b) => b[sorter] - a[sorter])
+    } else if (dateBased.has(sorter)) {
         desc ?
-            lst.sort() :
-            lst.sort()
+            lst.sort((a, b) => a[sorter] - b[sorter]) :
+            lst.sort((a, b) => b[sorter] - a[sorter])
     }
 
     return lst;
@@ -46,63 +53,43 @@ const searchFunc = (lst, search) => {
             return item
         }
     });
-
     return searchedList
 }
 
-export const createGrid = (objLst, methodName, targetDiv, { cutOff = 0, sort = "date_added", desc = false }) => {
-    sortFunc(objLst, "name");
-
-    if (sort !== "name") {
-        sortFunc(objLst, sort, desc);
-    }
-
-    if (cutOff > 0) {
-        objLst.splice(cutOff);
-    }
-
-    objLst.forEach(obj => {
-        processItem(obj, methodName, targetDiv);
-    })
-};
-
-export const convertDDMMYY = (date) => {
-    console.log(date)
-    if (date !== "") {
-        console.log('Processing date')
-        const [day, month, year] = date.split('/');
-        console.log(`${day} / ${month} / ${year}`)
-        return new Date(year, month - 1, day);
-    }
-}
-
-export const filterSearchSort = (lst, { sort = 'date_added', search = null, filters = {} }) => {
+export const filterSearchSort = (lst, { sort, search, filters }) => {
     let filteredList = lst.filter(item => {
+        if (!filters) {
+            return true;
+        }
+    
         return Object.entries(filters).every(([filter, filterValue]) => {
-            if (filterValue === '') return true;
-            if (filter === 'genre') {
-                return (
-                    item[filter].has(filterValue.toLowerCase()) && 
-                    item[filter] !== ''
-                )
-            } else {
-                return (
-                    item[filter].toLowerCase() === filterValue.toLowerCase() &&
-                    item[filter] !== ''
-                );
-
+            if (!filterValue) {
+                return true;
             }
+    
+            const itemValue = item[filter];
+            
+            if (itemValue === null || itemValue === undefined) {
+                return false;
+            }
+    
+            if (Array.isArray(itemValue)) {
+                const lowerCaseValues = new Set(
+                    itemValue.map(v => String(v).toLowerCase())
+                );
+                return lowerCaseValues.has(filterValue.toLowerCase());
+            }
+            const stringValue = String(itemValue).toLowerCase();
+            return stringValue === filterValue.toLowerCase() && stringValue !== '';
         });
     });
-
-    console.log(filteredList)
 
     if (search) {
         filteredList = searchFunc(filteredList, search);
     }
 
     if (filteredList) {
-        filteredList = sortFunc(filteredList, sort);
+        filteredList = sortFunc(filteredList, "name");
         if (sort !== "name" && filteredList) {
             filteredList = sortFunc(filteredList, sort);
         }
@@ -110,3 +97,15 @@ export const filterSearchSort = (lst, { sort = 'date_added', search = null, filt
 
     return filteredList
 }
+
+export const createGrid = (objLst, methodName, targetDiv, filterData = { sort: "date_added", desc: false, filters: {} }, cutOff = 0) => {
+    const filteredList = filterSearchSort(objLst, filterData)
+
+    if (cutOff > 0) {
+        filteredList.splice(cutOff);
+    }
+
+    filteredList.forEach(obj => {
+        processItem(obj, methodName, targetDiv);
+    })
+};

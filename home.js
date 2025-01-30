@@ -25,7 +25,7 @@ const booksDiv = document.getElementById('recs-grid-books');
     let recBooks = books;
 
     if (recBooks) {
-        createGrid(recBooks, "createBookElem", booksDiv, {cutOff : 4, sort : 'name'});
+        createGrid(recBooks, "createBookElem", booksDiv, {sort : 'date_added'}, 4);
     } else {
         console.log('Data is incorrect');
         console.log(typeof data);

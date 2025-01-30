@@ -1,12 +1,12 @@
 export class Book {
-    constructor(name, author, language, image, genre, dateAdded, yearPublish) {
+    constructor(name, author, language, image, genre, dateAdded, datePublished) {
         this.name = name;
         this.author = author;
         this.language = language
         this.image = image;
         this.genre = genre;
-        this.dateAdded = dateAdded;
-        this.yearPublish = yearPublish;
+        this["date_added"] = dateAdded;
+        this["date_published"] = datePublished;
     }
 
     createBookElem = (targetDiv) => {
@@ -80,17 +80,25 @@ export class Book {
         const dateAddedValue = document.createElement('div');
         dateAddedValue.setAttribute('id', 'book-date-added-value');
         dateAddedValue.classList.add('detail-value');
-        dateAddedLabel.textContent = this["date_added"];
+        if (this["date_added"]) {
+            dateAddedValue.textContent = this['date_added'].toDateString();
+        } else {
+            dateAddedValue.textContent = 'Not given';
+        }
 
         const datePublishedLabel = document.createElement('div');
-        datePublishedLabel.setAttribute('id', 'book-date-added-label');
+        datePublishedLabel.setAttribute('id', 'book-date-published-label');
         datePublishedLabel.classList.add('detail-label');
         datePublishedLabel.textContent = 'Date Published';
 
         const datePublishedValue = document.createElement('div');
-        datePublishedValue.setAttribute('id', 'book-date-added-value');
+        datePublishedValue.setAttribute('id', 'book-date-published-value');
         datePublishedValue.classList.add('detail-value');
-        datePublishedValue.textContent = this["date_published"];
+        if (this["date_published"]) {
+            datePublishedValue.textContent = this["date_published"].toDateString(); 
+        } else {
+            datePublishedValue.textContent = 'Not given';
+        }
 
         const authorLabel = document.createElement('div');
         authorLabel.setAttribute('id', 'book-date-added-label');

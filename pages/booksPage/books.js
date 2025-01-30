@@ -1,5 +1,5 @@
 import { Book } from "../../modules/objects.js";
-import { createGrid, filterSearchSort, processFormData } from "../../modules/utils.js";
+import { createGrid, processFormData, convertDDMMYY } from "../../modules/utils.js";
 import { fetchData } from "../../backend/fetch.js";
 
 const booksDiv = document.getElementById('grid-books');
@@ -15,8 +15,8 @@ const getBooks = async () => {
             bookDetail["language"],
             bookDetail["image"],
             bookDetail["genre"],
-            bookDetail["date_added"],
-            bookDetail["date_published"]
+            convertDDMMYY(bookDetail["date_added"]),
+            convertDDMMYY(bookDetail["date_published"])
         );
         books.push(newBook);
     });
@@ -25,8 +25,6 @@ const getBooks = async () => {
 }
 
 const filterBooks = (formData, lst) => {
-    console.log(lst)
-
     while (booksDiv.firstChild) {
         booksDiv.removeChild(booksDiv.firstChild)
     }
@@ -35,15 +33,15 @@ const filterBooks = (formData, lst) => {
 
     const processedData = processFormData(formData, bookFilters)
 
-    const filteredBooks = filterSearchSort(lst, processedData);
+    //const filteredBooks = filterSearchSort(lst, processedData);
 
-    createGrid(filteredBooks, 'createBookElem', booksDiv, {});
+    createGrid(lst, 'createBookElem', booksDiv, processedData);
 }
 
 (async () => {
     const books = await getBooks();
 
-    createGrid(books, 'createBookElem', booksDiv, {});
+    createGrid(books, 'createBookElem', booksDiv);
 
     const booksForm = document.getElementById('books-form');
 

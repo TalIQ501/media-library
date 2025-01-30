@@ -37,7 +37,7 @@
             "language": "English",
             "image": "/img/Book Covers/Report Cover.jpg",
             "genre": ["Mystery", "Crime", "Thriller"],
-            "date_added": "",
+            "date_added": "3/10/2016",
             "date_published": "5/12/2012"
         },
         "The Foolies": {
@@ -45,7 +45,7 @@
             "language": "English",
             "image": "/img/Book Covers/The Foolies Cover.jpg",
             "genre": ["Humour"],
-            "date_added": "",
+            "date_added": "28/6/2013",
             "date_published": "18/7/2007"
         },
         "The Meadows": {
@@ -53,7 +53,7 @@
             "language": "English",
             "image": "/img/Book Covers/The Meadows Cover.jpg",
             "genre": ["History"],
-            "date_added": "",
+            "date_added": "19/5/2019",
             "date_published": "5/1/2014"
         },
         "The Untold Mystery": {
@@ -61,7 +61,7 @@
             "language": "English",
             "image": "/img/Book Covers/The Untold Mystery Cover.jpg",
             "genre": ["Sci-Fi"],
-            "date_added": "",
+            "date_added": "18/2/2010",
             "date_published": "21/5/2008"
         },
         "Under the Sea": {
@@ -69,7 +69,7 @@
             "language": "English",
             "image": "/img/Book Covers/Under the Sea Cover.jpg",
             "genre": ["Adventure"],
-            "date_added": "",
+            "date_added": "5/6/2004",
             "date_published": "30/6/1998"
         }
     }
